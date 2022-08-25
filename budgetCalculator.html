@@ -23,7 +23,7 @@
 	
 	<div style="color:black; font-family: serif; font-size: 170%; margin-left:15px;">
     <p><b>Plan my spending, using the 
-	60/30/10 Rule! It is the simplest and easiest rule.</b></p><br>
+	50/30/20 Rule! It is the simplest and easiest rule.</b></p><br>
 	</div>
 	<hr>
 	
@@ -31,8 +31,8 @@
 	padding:10px; border:5px solid green; margin:15px; font-family: courier;
   font-size: 150%;">
     <p><b>Please Enter Your Monthly Income Below:</p>
-    <input style="font-family:courier; font-size:130%;" type="text" inputmode="numeric"
-	placeholder="$0" id="myIncome">
+    <input style="font-family:courier; font-size:130%;" type="number" 
+	min = "0" step="1" name="price" placeholder="$0" id="myIncome">
     <input style="font-family:courier; font-size:130%; font:bold;" type="button" 
 	onClick="functionBy()" Value="calculate">
 	<p>The distribution of your money by each category</p>
@@ -42,10 +42,19 @@
     <script>
     function functionBy() {
       income = document.getElementById("myIncome").value;
+	  //code to make it two decimal places
+	  essential = income * .50;
+	  essentials = essential.toFixed(2);
       document.getElementById("essentials").innerHTML = "Needs/Essentials: $"
-	  + income * .60;
-	  document.getElementById("fun").innerHTML = "Wants/Fun: $" + income * .10;
-	  document.getElementById("saving").innerHTML = "Saving: $" + income * .30;
+	  + essentials;
+	  //code to make it two decimal places
+	  fun = income * .30;
+	  wants = fun.toFixed(2);
+	  document.getElementById("fun").innerHTML = "Wants/Fun: $" + wants;
+	  //code to make it two decimal places
+	  save = income * .20;
+	  savings = save.toFixed(2);
+	  document.getElementById("saving").innerHTML = "Saving: $" + savings;
 	}
     </script></b>
 	</div>
@@ -53,22 +62,22 @@
 	
 	<div style="color:black; font-family: serif; font-size: 160%; margin: 50px; 
 	text-align: justify;">
-    <p>A little bit about the 60/30/10 Rule. This rule will help you with saving
-	and spending your money effecently. The percent division is 60% for 
-	essentials, 10% for fun, 30% to your saving.<p>
+    <p>A little bit about the 50/30/20 Rule. This rule will help you with saving 
+	and spending your money efficiently. The percent division is 50% for essentials, 
+	30% for fun, 20% for saving.<p>
 	
-	<P><b>Needs</b> and what they include: rent, utilities, phone, internet, 
-	insurance, car payment, etc... If your essentials passes the 60% of 
-	your monthly income. Do not worry, it's time to improvise and move 
-	into a more affordable housing or take on a roommate. Negotiate price 
-	or take advantage of offers on your internet, phone, insurance, and more.</p>
+	<P><b>Needs</b> and what they include: rent, utilities, phone, internet, insurance,
+	car payment, etc... If your essentials pass the 50% of your monthly income. Do not
+	worry, it's time to improvise and move into a more affordable housing or take on a
+	roommate. Negotiate price or take advantage of offers on your internet, phone, 
+	insurance, and more.</p>
 	
-	<p><b>Wants</b> and what they include: vacations, eating out, subscriptions, 
-	etc... If your wants are out of your buget, cut back. Eat out less, share some
-	subscriptions like Netflix with a friend. This is the easiest fincially but hard
-	emotionaly to cut back on, but we need to stay in budget.</p>
+	<p><b>Wants</b> and what they include: vacations, eating out, subscriptions, etc... 
+	If your wants are out of your budget(more than 30%), cut back. Eat out less, share 
+	some subscriptions like Netflix with a friend. This is the easiest financially but 
+	hardest emotionally to cut back on, but we need to stay in budget.</p>
 	
-	<p><b>Saving</b> needs to be 30% of your income. But as you get older and your income
+	<p><b>Saving</b> needs to be 20% of your income. But as you get older, and your income
 	increase invest a lot more into savings. Your older self will thank you!</p> 
 	</div>
 	</div>
